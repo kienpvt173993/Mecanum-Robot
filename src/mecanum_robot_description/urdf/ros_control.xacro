@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="zm_ros2_control" params="name prefix">
+    <ros2_control name="MecanumHardware" type="system">
+      <hardware>
+        <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+      </hardware>
+
+      <joint name="${prefix}wheel_joint_1">
+        <command_interface name="velocity" />
+        <state_interface name="position" />
+        <state_interface name="velocity" />
+      </joint>
+
+      <joint name="${prefix}wheel_joint_2">
+        <command_interface name="velocity" />
+        <state_interface name="position" />
+        <state_interface name="velocity" />
+      </joint>
+
+      <joint name="${prefix}wheel_joint_3">
+        <command_interface name="velocity" />
+        <state_interface name="position" />
+        <state_interface name="velocity" />
+      </joint>
+
+      <joint name="${prefix}wheel_joint_4">
+        <command_interface name="velocity" />
+        <state_interface name="position" />
+        <state_interface name="velocity" />
+      </joint>
+    </ros2_control>
+
+    <ros2_control name="JointStateHardware" type="system">
+      <hardware>
+        <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+      </hardware>
+      <!-- roller wheel 1 -->
+      <joint name="${prefix}roller_1_1_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_1_2_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_1_3_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_1_4_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_1_5_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_1_6_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_1_7_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_1_8_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_1_9_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <!-- roller wheel 2 -->
+      <joint name="${prefix}roller_2_1_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_2_2_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_2_3_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_2_4_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_2_5_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_2_6_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_2_7_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_2_8_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_2_9_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <!-- roller wheel 3 -->
+      <joint name="${prefix}roller_3_1_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_3_2_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_3_3_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_3_4_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_3_5_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_3_6_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_3_7_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_3_8_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_3_9_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <!-- roller wheel 3 -->
+      <joint name="${prefix}roller_9_1_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_9_2_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_9_3_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_9_4_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_9_5_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_9_6_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_9_7_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_9_8_joint">
+        <state_interface name="position" />
+      </joint>
+
+      <joint name="${prefix}roller_9_9_joint">
+        <state_interface name="position" />
+      </joint>
+
+    </ros2_control>
+    <gazebo>
+      <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+      <ros>
+        <remapping>/mecanum_bot_base_controller/cmd_vel_unstamped:=/cmd_vel</remapping>
+      </ros>
+        <parameters>$(find mecanum_robot_gazebo)/config/mecanum_controllers.yaml</parameters>
+      </plugin>
+    </gazebo>
+  </xacro:macro>
+
+</robot>
